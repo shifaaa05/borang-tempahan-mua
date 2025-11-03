@@ -230,39 +230,3 @@ fieldset legend{
     margin-top: 1rem;
 }
 
-/* === Responsive fixes for mobile === */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-    background-attachment: scroll;
-  }
-
-  #main {
-    width: 100%;
-    padding: 10px;
-    max-width: 90%;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px); /* iPhone Safari fix */
-  }
-
-  .input-box {
-    margin: 20px 0;
-  }
-
-  .input-box input {
-    width: 100%;
-    height: 100%;
-    font-size: 14px;
-    padding: 12px;
-  }
-
-  #main h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-
-  #main .button .btn {
-    width: 80%;
-  }
-}
-
