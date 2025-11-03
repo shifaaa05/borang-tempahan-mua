@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Form Using HTML and CSS">
+        <title>Borang Tempahan MUA</title>
+        <link rel="stylesheet" href="styles.css">
+        <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+        
+        <div id="main">
+            <form action="https://script.google.com/macros/s/AKfycbwong5dvvmSvV1ZVFvOlT3Dke3e3Sx1M0kwAEIQ9vPd9ZUMvjYkqhAn7RXW5u7DjFbk0w/exec" method="post">
+                <h1>Borang Tempahan MUA by Mazwati Mat</h1>
+
+                <fieldset>
+                    <legend>Maklumat Peribadi</legend>
+                        <div class="input-box">
+                            <input type="text" name="nama_pelanggan" id="name" placeholder="Nama Anda" required>
+                            <i class='bx  bxs-user'  ></i> 
+                        </div>
+                        <div class="input-box">
+                            <input type="email" name="email_pelanggan" id="email" placeholder="Email" required>
+                            <i class='bx  bxs-at'  ></i> 
+                        </div>
+                        <div class="input-box">
+                            <input type="tel" name="nombor_tel" id="phone" placeholder="Nombor Telefon" required>
+                            <i class='bx  bxs-phone'  ></i> 
+                        </div>   
+                </fieldset>
+
+                <fieldset>
+                    <legend>Majlis Malam Inai</legend>
+                        <div class="input-box">
+                            <input type="text" name="alamat_malam_inai" id="addr1" placeholder="Alamat Majlis">
+                        </div>
+                        <div class="input-box">
+                            <input type="date" name="tarikh_malam_inai" id="date1" placeholder="Tarikh Majlis">
+                            <small class="hint">Traikh majlis(contoh: 21/05/2029)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_malam_inai_mula" id="time1" placeholder="Masa Majlis Mula">
+                            <small class="hint">Masa majlis bermula (contoh: 6:00 PM)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_malam_inai_akhir" id="time01" placeholder="Masa Majlis Berakhir">
+                            <small class="hint">Masa berakhir (contoh: 11:00 PM)</small>
+                        </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Majlis Nikah</legend>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" name="alamat_nikah" id="addr2" placeholder="Alamat Majlis"> 
+                        </div>
+                        <div class="input-box">
+                            <input type="date" name="tarikh_nikah" id="date2">
+                            <small class="hint">Traikh majlis(contoh: 21/05/2029)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_nikah_mula" id="time2">
+                            <small class="hint">Masa majlis bermula (contoh: 6:00 PM)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_nikah_akhir" id="time02">
+                            <small class="hint">Masa majlis berakhir (contoh: 11:00 PM)</small>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Majlis Sanding</legend>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" name="alamat_sanding" id="addr3" placeholder="Alamat Majlis">
+                        </div>
+                        <div class="input-box">
+                            <input type="date" name="tarikh_sanding" id="date3">
+                            <small class="hint">Traikh majlis(contoh: 21/05/2029)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_sanding_mula" id="time3">
+                            <small class="hint">Masa majlis bermula (contoh: 6:00 PM)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_sanding_akhir" id="time03">
+                            <small class="hint">Masa majlis berakhir (contoh: 11:00 PM)</small>
+                        </div>
+                    </div>
+                </fieldset>
+
+
+                <fieldset>
+                    <legend>Majlis Lain-Lain</legend>
+                    <div class="form-group">
+                        <div class="input-box">
+                            <input type="text" name="nama_majlis_lain" id="parties" placeholder="Nama Majlis">
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="alamat_majlis_lain" id="addr4" placeholder="Alamat Majlis">                     
+                        </div>
+                        <div class="input-box">
+                            <input type="date" name="tarikh_majlis_lain" id="date4">
+                            <small class="hint">Traikh majlis(contoh: 21/05/2029)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_majlis_lain_mula" id="time4">
+                            <small class="hint">Masa majlis bermula (contoh: 6:00 PM)</small>
+                        </div>
+                        <div class="input-box">
+                            <input type="time" name="masa_majlis_lain_akhir" id="time04">
+                            <small class="hint">Masa majlis berakhir (contoh: 11:00 PM)</small>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="button">
+                    <button type="reset" class="btn">Set Semula</button>
+                    <button type="submit" class="btn">Hantar</button>
+                </div>
+                <div id="loading">
+                    <p>⏳ Submitting, please wait...</p>
+                </div>
+            </form>
+        </div>
+        <!-- Modal Overlay -->
+            <div id="successModal" class="modal">
+                <div class="modal-content">
+                    <h2>Terima kasih!</h2>
+                    <p>Borang tempahan anda telah berjaya dihantar.</p>
+                    <button id="closeModal">Tutup</button>
+                </div>
+            </div>
+         <div class="tandc">
+            <h2>Terma dan Syarat</h2>
+            <ul>
+                <li>Baki bayaran hendaklah diselesaikan selewat-lewatnya seminggu sebelum tarikh majlis.</li>
+                <li>Sekiranya baki bayaran tidak diselesaikan sehingga hari majlis, pihak MUA berhak untuk tidak hadir bagi menjalankan perkhidmatan solekan.</li>
+                <li>Bayaran deposit tidak akan dikembalikan sekiranya pembatalan perkhidmatan dilakukan oleh pihak pelanggan.</li>
+                <li>Sekiranya pihak MUA membatalkan perkhidmatan, bayaran deposit serta baki bayaran (jika ada) akan dikembalikan sepenuhnya kepada pelanggan.</li>
+                <li>Pelanggan dibenarkan menangguhkan tarikh majlis ke tarikh baharu dengan memaklumkan terlebih dahulu kepada pihak MUA, tertakluk kepada kekosongan tarikh tersebut.</li>
+            </ul>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
