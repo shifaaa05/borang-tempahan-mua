@@ -6,19 +6,21 @@ const closeBtn = document.getElementById("closeModal");
 // Close modal when button is clicked
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
+  form.reset(); // Reset form after closing modal
 });
 
 // Optional: close when clicking outside modal content
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.style.display = "none";
+    form.reset();
   }
 });
 
 const submitBtn = form.querySelector('button[type="submit"]');
 const loadingDiv = document.getElementById('loading');
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
 
   // 1. Show loading state
@@ -27,29 +29,40 @@ form.addEventListener('submit', async (e) => {
 
   try {
     const formData = new FormData(form);
-    const response = await fetch('https://script.google.com/macros/s/AKfycbyg8NXhUJSl_q_b46Nb72Pmcq2qcSJitypE6fW59mk0hZjhg51cY9CBPjtJlb8UcB78qw/exec', {
-      method: 'POST',
-      body: formData,
-    });
 
-    const text = await response.text();
+    // Use XMLHttpRequest (better for Apps Script CORS)
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', form.action, true);
 
-    // 2. Hide loading
-    loadingDiv.style.display = 'none';
-    submitBtn.disabled = false;
+    xhr.onload = function() {
+      loadingDiv.style.display = 'none';
+      submitBtn.disabled = false;
 
-    // 3. Show success modal if Google replied "Success"
-    // 3. Handle Google Script reply
-    if (text === 'Success') {
-        document.getElementById('successModal').style.display = 'flex';
-    } else if (text === 'duplicate') {
-        alert('Anda telah membuat tempahan pada tarikh dan masa yang sama.');
-    } else {
-        alert('Ralat! Sila cuba lagi.');
-    }
+      if (xhr.status === 200) {
+        const text = xhr.responseText.trim();
+
+        if (text === 'Success') {
+          modal.style.display = 'flex';
+        } else if (text === 'duplicate') {
+          alert('Anda telah membuat tempahan pada tarikh dan masa yang sama.');
+        } else {
+          alert('Ralat! Sila cuba lagi. Respons: ' + text);
+        }
+      } else {
+        alert('Ralat! Status: ' + xhr.status);
+      }
+    };
+
+    xhr.onerror = function() {
+      loadingDiv.style.display = 'none';
+      submitBtn.disabled = false;
+      alert('Ralat rangkaian! Sila semak sambungan internet anda.');
+    };
+
+    xhr.send(formData);
 
   } catch (err) {
-    // 4. Handle network errors
+    // Handle unexpected JS errors
     loadingDiv.style.display = 'none';
     submitBtn.disabled = false;
     alert('Error submitting form: ' + err.message);
