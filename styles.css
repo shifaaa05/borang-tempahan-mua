@@ -296,4 +296,32 @@ fieldset legend{
   }
 }
 
+/* fine-tune iPhone quirks */
+@supports (-webkit-touch-callout: none) {
+  /* Only Safari/iOS will obey this block */
+
+  .input-box input[type="date"],
+  .input-box input[type="time"] {
+    width: min(100%, 280px);   /* prevents oversized picker on big phones */
+    min-width: 160px;          /* prevents tiny picker on older phones */
+    padding: 10px 14px;
+    height: 45px;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+
+  /* optional — ensures icon alignment doesn’t break */
+  .input-box i {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /*---Added breathing space for iPhone*/
+.input-box {
+  padding-right: 6px;
+}
+
+}
+
+
 
