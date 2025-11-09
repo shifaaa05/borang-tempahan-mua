@@ -230,3 +230,70 @@ fieldset legend{
     margin-top: 1rem;
 }
 
+/*---This part is for mobile responsiveness. iPhone and other mobile device focused. */
+/*---Bahagian ini adalah styling untuk telefon pintar. Fokus untuk iPhone dan telefon pintar yang lain. */
+
+/* 🌸 UNIVERSAL MOBILE FIX */
+@media screen and (max-width: 600px) {
+  body {
+    flex-direction: column;
+    padding: 10px;
+    background-attachment: scroll; /* prevents weird fixed scroll lag on iOS */
+  }
+
+  #main {
+    max-width: 95%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+  }
+
+  .input-box {
+    height: auto; /* let it expand naturally */
+    margin: 20px 0;
+  }
+
+  .input-box input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 16px;
+    height: 45px; /* consistent across all inputs */
+    border-radius: 20px;
+  }
+
+  input[type="date"],
+  input[type="time"] {
+    padding: 10px 14px;
+    height: 45px;
+    font-size: 16px; /* prevents Safari zoom */
+  }
+
+  #main h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #main .button .btn {
+    width: 80%;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .tandc {
+    max-width: 95%;
+    padding: 20px;
+    font-size: 0.95rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+

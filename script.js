@@ -19,13 +19,19 @@ modal.addEventListener("click", (e) => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  //submit and loading button
   
   submitBtn.disabled = true;
   loadingDiv.style.display = 'block';
 
+  //XML Request because it works better with Google's API
+
   const formData = new FormData(form);
   const xhr = new XMLHttpRequest();
   xhr.open('POST', form.action, true);
+
+  //when the modal box should show up
   
   xhr.onload = function() {
     loadingDiv.style.display = 'none';
@@ -36,11 +42,13 @@ form.addEventListener('submit', (e) => {
       alert('Ralat! Sila cuba lagi.');
     }
   };
+
+  //error display in case of error
   
   xhr.onerror = function() {
     loadingDiv.style.display = 'none';
     submitBtn.disabled = false;
-    alert('Ralat rangkaian! Sila semak sambungan internet anda.');
+    alert('Alamak! Ada masalah di sistem kami. Sila cuba sebentar lagi! Atau anda ada isi dua kali?');
   };
   
   xhr.send(formData);
